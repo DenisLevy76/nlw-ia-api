@@ -16,10 +16,22 @@ Content-Type: audio/mpeg
 
 ###
 
-# @name Transcriptdwawions
+# @name Transcriptions
 POST http://localhost:3333/videos/89a5cf17-e27c-4481-bada-07fed21822e1/transcription
 Content-Type: application/json
 
 {
   "prompt": "casa"
+}
+
+###
+
+# @name Complete
+POST http://localhost:3333/ai/complete
+Content-Type: application/json
+
+{
+  "videoId": "89a5cf17-e27c-4481-bada-07fed21822e1",
+  "template": "Gere um resumo sucinto da transcrição do vídeo informada a seguir: '''{transcription}''' ",
+  "temperature": 0.3
 }
