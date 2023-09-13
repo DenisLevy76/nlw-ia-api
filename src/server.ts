@@ -5,9 +5,12 @@ import { uploadVideo } from './routes/uploadVideo';
 import 'dotenv/config'
 import { createTranscription } from './routes/createTranscription';
 import { generateAiCompletion } from './routes/generateAiCompletion';
+import fastifyCors from '@fastify/cors';
 
 const app = fastify()
-
+app.register(fastifyCors, {
+  origin: '*'
+})
 app.register(getAllPromptsRoute)
 app.register(uploadVideo)
 app.register(createTranscription)
